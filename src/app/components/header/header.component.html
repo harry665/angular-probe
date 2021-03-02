@@ -1,0 +1,46 @@
+<!-- Navbar burger menu -->
+<div class="collapse collapse-menu" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-muted">About</h4>
+          <p class="text-muted">Lady Maramalade got founded is 2021 and focuses on producing home made marmalade and vegan donuts.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-muted">Contact</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-muted">Follow us on Twitter</a></li>
+            <li><a href="#" class="text-muted">Follow us on Instagram</a></li>
+            <li><a href="#" class="text-muted">Email us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Header Navbar -->
+<div class="navbar sticky-top navbar-dark navbar shadow-sm">
+    <div class="container">
+      <div class="d-flex align-items-center">
+      
+        <a class="navbar-brand" [routerLink]="['/']">
+          <strong>Lady Marmalade</strong>
+        </a>
+        
+        <div class="nav-link-box">
+        <a class="nav-link" [routerLink]="['/']">Home</a>
+        <a class="nav-link" [routerLink]="['/']">Shop</a>
+        <a class="nav-link" [routerLink]="['/review']">Reviews</a>
+        <a class="nav-link" [routerLink]="['/about']">About</a>
+        </div>
+      </div>
+
+      <button class="navbar-toggler sic" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" (click)="getBackToTop()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+</div>
+
+<div class="container-fluide top-info">
+  <a>With the purchase of any Lady Marmelade product, 10 percent of sales will be donated directly to the GlobalGiving Coronavirus Relief Fund.</a>
+</div>

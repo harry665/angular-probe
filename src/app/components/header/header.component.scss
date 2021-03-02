@@ -1,0 +1,31 @@
+.navbar {
+  background-color: rgb(196, 119, 132);
+
+  .nav-link-box {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+
+    .nav-link {
+      color: white;
+      font-size: 14px;
+    }
+  }
+}
+
+.collapse-menu {
+  background-color: rgb(255, 170, 184);
+}
+
+.navbar-toggler {
+  border: 0px;
+}
+
+.top-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  background-color: rgba(104, 104, 104, 0.242);
+  font-size: 12px;
+}

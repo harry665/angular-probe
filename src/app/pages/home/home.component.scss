@@ -1,0 +1,29 @@
+.button-box {
+  display: flex;
+  justify-content: center;
+
+  .button-box-border {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.body-box {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  max-width: 1075px;
+  height: 500px;
+  margin-bottom: 50px;
+  box-shadow: 0px 0px 10px 1px rgba(176, 176, 176, 1);
+}
+
+.body-box-border {
+  padding-top: 15px;
+  width: 985px;
+  text-align: justify;
+}
+
+.body-text {
+  padding-top: 15px;
+}
