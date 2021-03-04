@@ -1,1 +1,111 @@
-Test
+<main>
+
+  <!-- REVIEW HEADER SECTION -->
+  <section class="container text-center">
+
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">You want to get rid of something?</h1>
+                <p class="lead text-muted">We welcome your feedback to help us continuously improve and make the world aware of our products.</p>
+                <button class="btn btn-outline-secondary share" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Share us your review!</button>
+        </div>
+    </div>
+
+  </section>
+
+  <!-- REVIEW MODAL SECTION -->
+  <section>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+     
+      <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+          <div class="modal-header modal-background-header">
+
+            <strong class="navbar-brand modal-background-header">Share us your review!</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         
+          </div>
+          
+          <div class="modal-body modal-background-body">
+
+            <!-- Modal content -->
+            <form class="row g-2">
+
+              <div class="modal-input">
+
+                <!-- Modal input name -->
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                  <label for="validationDefault01" class="form-label">Name:</label>
+                  <input type="text" class="form-control modal-name-input-margin" id="validationDefault01" placeholder="What is your name?" minlength="2" maxlength="12" required>
+                </div>
+
+                <!-- Modal input textarea -->
+                <div class="col-md-12">
+                  <label for="validationDefault02" class="form-label">Review:</label>
+                  <textarea type="text" class="form-control" id="validationDefault02" rows="10" cols="80" placeholder="Feel free to share your review with us!" minlength="10" maxlength="1000" required></textarea>
+                </div>
+
+                <!-- Modal input stars -->
+                <div class="col text-center">
+                  <!-- <label for="validationDefault03" class="form-label">Stars:</label> -->
+                  <ngb-rating class="modal-stars" id="validationDefault03" [max]="5" [readonly]="false" required></ngb-rating>
+                </div>
+
+              </div>
+
+              <!-- Modal buttons -->
+              <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary modal-share-button" type="submit">Share!</button>
+              
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+  </section>
+
+  <!-- REVIEW INPUT SECTION -->
+  <section class="container">
+
+    <div class="row reviews-box">
+
+      <div class="col-lg-2">
+        
+        <div class="reviews-details">
+          
+          <span>Author: Harry<br>
+            Rating: 5 Stars<br>
+            Date: March 4th, 2021
+          </span>
+          
+        </div>
+
+      </div>
+      
+      <div class="col-lg-7">
+        
+        <div class="reviews">
+          
+          <span>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zu nutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht. Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach "lorem ipsum" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).</span>
+          
+        </div>
+        
+      </div>
+
+    </div>
+
+  </section>
+
+</main>

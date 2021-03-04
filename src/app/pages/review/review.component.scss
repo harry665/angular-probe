@@ -1,0 +1,57 @@
+// - - -
+// FRONT-END CSS
+// - - -
+
+button.share:hover {
+  background-color: rgb(196, 119, 132);
+  border-color: rgb(196, 119, 132);
+}
+
+.reviews-box {
+  justify-content: center;
+  margin-bottom: 35px;
+  text-align: justify;
+
+  .reviews-details {
+    background-color: rgba(104, 104, 104, 0.242);
+    width: max-content;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// MEDIA: LARGE SCREEN
+@media screen and (max-width: 991px) {
+  .container {
+    margin-top: 25px;
+  }
+}
+
+// - - -
+// BACKGROUND CSS
+// - - -
+
+// MODAL CSS
+
+.modal-background-body {
+  background-color: antiquewhite;
+}
+
+.modal-background-header {
+  color: white;
+  background-color: rgb(196, 119, 132);
+}
+
+.modal-name-input-margin {
+  margin-bottom: 10px;
+}
+
+.modal-share-button {
+  background-color: rgb(196, 119, 132);
+  border-color: rgb(196, 119, 132);
+}
+
+.modal-stars {
+  color: #ffc107;
+  font-size: 35px;
+}
