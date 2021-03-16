@@ -1,5 +1,3 @@
-<main>
-
   <!-- REVIEW HEADER SECTION -->
   <section class="container text-center">
 
@@ -39,19 +37,19 @@
                 <!-- Modal input name -->
                 <div class="col-lg-4 col-md-12 col-sm-12">
                   <label for="validationDefault01" class="form-label">Name:</label>
-                  <input type="text" class="form-control modal-name-input-margin" id="validationDefault01" placeholder="What is your name?" minlength="2" maxlength="12" required>
+                  <input name="name" type="text" class="form-control modal-name-input-margin" id="validationDefault01" placeholder="What is your name?" minlength="2" maxlength="12" [(ngModel)]="reviewAuthorInputValue" required>
                 </div>
 
                 <!-- Modal input textarea -->
                 <div class="col-md-12">
                   <label for="validationDefault02" class="form-label">Review:</label>
-                  <textarea type="text" class="form-control" id="validationDefault02" rows="10" cols="80" placeholder="Feel free to share your review with us!" minlength="10" maxlength="1000" required></textarea>
+                  <textarea name="review" type="text" class="form-control" id="validationDefault02" rows="10" cols="80" placeholder="Feel free to share your review with us!" minlength="10" maxlength="1000" [(ngModel)]="reviewTextareaInputValue" required></textarea>
                 </div>
 
                 <!-- Modal input stars -->
                 <div class="col text-center">
                   <!-- <label for="validationDefault03" class="form-label">Stars:</label> -->
-                  <ngb-rating class="modal-stars" id="validationDefault03" [max]="5" [readonly]="false" required></ngb-rating>
+                  <ngb-rating name="stars" class="modal-stars" id="validationDefault03" [max]="5" [readonly]="false" [(ngModel)]="reviewRatingInputValue" required></ngb-rating>
                 </div>
 
               </div>
@@ -60,7 +58,7 @@
               <div class="modal-footer">
 
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary modal-share-button" type="submit">Share!</button>
+                <button type="button" class="btn btn-primary modal-share-button" data-bs-dismiss="modal" (click)="addReview()">Share!</button>
               
               </div>
 
@@ -79,33 +77,32 @@
   <!-- REVIEW INPUT SECTION -->
   <section class="container">
 
-    <div class="row reviews-box">
+    <div *ngFor="let review of reviews" class="row reviews-box">
 
-      <div class="col-lg-2">
-        
-        <div class="reviews-details">
+        <div class="col-lg-2">
           
-          <span>Author: Harry<br>
-            Rating: 5 Stars<br>
-            Date: March 4th, 2021
-          </span>
-          
-        </div>
+            <div class="reviews-details">
+              
+              <span>
+                Author: {{ review.author }}<br>
+                Rating: {{ review.rating }} Stars<br>
+                Date: {{ review.date }}
+              </span>
+              
+            </div>
 
-      </div>
-      
-      <div class="col-lg-7">
-        
-        <div class="reviews">
-          
-          <span>Es ist ein lang erwiesener Fakt, dass ein Leser vom Text abgelenkt wird, wenn er sich ein Layout ansieht. Der Punkt, Lorem Ipsum zu nutzen, ist, dass es mehr oder weniger die normale Anordnung von Buchstaben darstellt und somit nach lesbarer Sprache aussieht. Viele Desktop Publisher und Webeditoren nutzen mittlerweile Lorem Ipsum als den Standardtext, auch die Suche im Internet nach "lorem ipsum" macht viele Webseiten sichtbar, wo diese noch immer vorkommen. Mittlerweile gibt es mehrere Versionen des Lorem Ipsum, einige zufällig, andere bewusst (beeinflusst von Witz und des eigenen Geschmacks).</span>
-          
         </div>
-        
-      </div>
+          
+        <div class="col-lg-7">
+            
+          <div class="reviews">
+              
+            <p>{{ review.text }}</p>
+            
+          </div>
+            
+        </div>
 
     </div>
 
   </section>
-
-</main>
