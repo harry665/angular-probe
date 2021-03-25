@@ -13,19 +13,47 @@
   }
 }
 
-.collapse-menu {
-  background-color: rgb(255, 170, 184);
+.collapse-menu-title {
+  color: white;
 }
 
 .navbar-toggler {
   border: 0px;
 }
 
-.top-info {
+.top-info-box {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 35px;
   background-color: rgba(104, 104, 104, 0.242);
   font-size: 12px;
+}
+
+// MEDIA: MEDIUM SCREEN
+@media screen and (max-width: 767px) {
+  .sic {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  
+  .navbar {
+    background-color: rgb(196, 119, 132);
+  
+    .nav-link-box {
+      display: flex;
+      flex-direction: row;
+      margin-left: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .top-info-box {
+    height: 45px;
+  }
+  .top-info-text {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
 }

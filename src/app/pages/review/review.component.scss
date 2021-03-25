@@ -21,9 +21,22 @@ button.share:hover {
 }
 
 // MEDIA: LARGE SCREEN
+@media screen and (max-width: 1199px) {
+  .reviews {
+    margin-left: 30px;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .container {
     margin-top: 25px;
+  }
+  .reviews {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  .reviews-box{
+    margin-bottom: 10px;
   }
 }
 
@@ -51,7 +64,25 @@ button.share:hover {
   border-color: rgb(196, 119, 132);
 }
 
-.modal-stars {
+.modal-rating {
   color: #ffc107;
   font-size: 35px;
+}
+
+// MODAL INVALID/VALID FOR INPUT AND TEXTAREA
+
+input.ng-invalid{
+  border-left: 5px solid red;
+}
+
+input.ng-valid{
+  border-left: 5px solid rgb(1, 196, 1);
+}
+
+textarea.ng-invalid{
+  border-left: 5px solid red;
+}
+
+textarea.ng-valid{
+  border-left: 5px solid rgb(1, 196, 1);
 }

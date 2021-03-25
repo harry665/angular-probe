@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Review } from 'src/app/models/review';
 
 @Component({
@@ -10,16 +11,24 @@ import { Review } from 'src/app/models/review';
 export class ReviewComponent implements OnInit {
 
   reviews: Review[] = []  
-  
-  reviewAuthorInputValue: string
-  reviewTextareaInputValue: string
-  reviewRatingInputValue: number = 0; 
 
-  fiveStarsRadioButtonValue: boolean
-  fourStarsRadioButtonValue: boolean
-  threeStarsRadioButtonValue: boolean
-  twoStarsRadioButtonValue: boolean
-  oneStarsRadioButtonValue: boolean
+  reviewForm = new FormGroup({
+    name: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+      Validators.maxLength(12)
+    ]),
+    text: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(2000)
+    ]),
+    rating: new FormControl('', [
+      Validators.required,
+      Validators.min(1),
+      Validators.max(5)
+    ])
+  })
 
   constructor() { }
 
@@ -29,30 +38,18 @@ export class ReviewComponent implements OnInit {
     addReview(): void {
 
       this.reviews.push({
-        author: this.reviewAuthorInputValue,
-        rating: this.reviewRatingInputValue,
+        name: this.reviewForm.get('name').value,
+        text: this.reviewForm.get('text').value,
+        rating: this.reviewForm.get('rating').value,
         date: this.getDate(),
-        text: this.reviewTextareaInputValue
       })
       
-      // Empty input and textarea value after push
-      this.reviewAuthorInputValue = ""
-      this.reviewTextareaInputValue = ""
-  
-      // Empty value and uncheck radio button after push
-      this.reviewRatingInputValue = 0
-      this.fiveStarsRadioButtonValue = false
-      this.fourStarsRadioButtonValue = false
-      this.threeStarsRadioButtonValue = false
-      this.twoStarsRadioButtonValue = false
-      this.oneStarsRadioButtonValue = false
-  
-    }
-  
-    // Gets parameter HTML by onclick and puts it into "this.reviewRating"
-    setRating(rating: number): void {
-  
-      this.reviewRatingInputValue = rating
+      // Empty input, textarea and rating value after push
+      this.reviewForm.setValue({
+        'name': '',
+        'text': '',
+        'rating': ''
+      })
   
     }
     

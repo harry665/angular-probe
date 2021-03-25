@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ReviewComponent } from './pages/review/review.component';
 import { ShopComponent } from './pages/shop/shop.component';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ShopComponent } from './pages/shop/shop.component';
     AppRoutingModule,
     FormsModule,
     NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

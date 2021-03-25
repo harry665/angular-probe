@@ -23,43 +23,43 @@
           <div class="modal-header modal-background-header">
 
             <strong class="navbar-brand modal-background-header">Share us your review!</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          
           </div>
           
           <div class="modal-body modal-background-body">
 
             <!-- Modal content -->
-            <form class="row g-2">
+            <form class="row g-2" [formGroup]="reviewForm">
 
               <div class="modal-input">
 
                 <!-- Modal input name -->
                 <div class="col-lg-4 col-md-12 col-sm-12">
-                  <label for="validationDefault01" class="form-label">Name:</label>
-                  <input name="name" type="text" class="form-control modal-name-input-margin" id="validationDefault01" placeholder="What is your name?" minlength="2" maxlength="12" [(ngModel)]="reviewAuthorInputValue" required>
+                  <label>Name:</label>
+                  <input formControlName="name" class="form-control modal-name-input-margin" maxlength="12" placeholder="What is your name?">
+                  <!-- <label *ngIf="reviewForm.controls['name'].invalid">Name is required!</label> -->
                 </div>
 
                 <!-- Modal input textarea -->
                 <div class="col-md-12">
-                  <label for="validationDefault02" class="form-label">Review:</label>
-                  <textarea name="review" type="text" class="form-control" id="validationDefault02" rows="10" cols="80" placeholder="Feel free to share your review with us!" minlength="10" maxlength="1000" [(ngModel)]="reviewTextareaInputValue" required></textarea>
+                  <label>Review:</label>
+                  <textarea formControlName="text" class="form-control" maxlength="2000" rows="10" cols="80" placeholder="Feel free to share your review with us!"></textarea>
+                  <!-- <label *ngIf="reviewForm.controls['text'].invalid">Review is required!</label> -->
                 </div>
 
-                <!-- Modal input stars -->
+                <!-- Modal input rating -->
                 <div class="col text-center">
-                  <!-- <label for="validationDefault03" class="form-label">Stars:</label> -->
-                  <ngb-rating name="stars" class="modal-stars" id="validationDefault03" [max]="5" [readonly]="false" [(ngModel)]="reviewRatingInputValue" required></ngb-rating>
+                  <ngb-rating formControlName="rating" class="modal-rating" [max]="5"></ngb-rating>
+                  <!-- <label *ngIf="reviewForm.controls['rating'].invalid">Rating is required!</label> -->
                 </div>
 
               </div>
 
               <!-- Modal buttons -->
               <div class="modal-footer">
-
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary modal-share-button" data-bs-dismiss="modal" (click)="addReview()">Share!</button>
-              
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-secondary modal-share-button" data-bs-dismiss="modal" (click)="addReview()" [disabled]="reviewForm.invalid">Share!</button>
               </div>
 
             </form>
@@ -84,7 +84,7 @@
             <div class="reviews-details">
               
               <span>
-                Author: {{ review.author }}<br>
+                Author: {{ review.name }}<br>
                 Rating: {{ review.rating }} Stars<br>
                 Date: {{ review.date }}
               </span>
@@ -104,5 +104,90 @@
         </div>
 
     </div>
+
+    <div class="row reviews-box">
+
+      <div class="col-lg-2">
+        
+          <div class="reviews-details">
+            
+            <span>
+              Author: Harry<br>
+              Rating: 5 Stars<br>
+              Date: March 25th, 2021
+            </span>
+            
+          </div>
+
+      </div>
+        
+      <div class="col-lg-7">
+          
+        <div class="reviews">
+            
+          <p>Schmeckt sehr gut. Jedoch kann man bemängeln, dass jedes mal das selbe Essen geliefert wird, obwohl man etwas anderes bestellt.</p>
+          
+        </div>
+          
+      </div>
+
+  </div>
+
+  <div class="row reviews-box">
+
+      <div class="col-lg-2">
+        
+          <div class="reviews-details">
+            
+            <span>
+              Author: Harry<br>
+              Rating: 5 Stars<br>
+              Date: March 25th, 2021
+            </span>
+            
+          </div>
+
+      </div>
+        
+      <div class="col-lg-7">
+          
+        <div class="reviews">
+            
+          <p>Schmeckt sehr gut. Jedoch kann man bemängeln, dass jedes mal das selbe Essen geliefert wird, obwohl man etwas anderes bestellt.</p>
+          
+        </div>
+          
+      </div>
+
+  </div>
+
+  <div class="row reviews-box">
+
+    <div class="col-lg-2">
+      
+        <div class="reviews-details">
+          
+          <span>
+            Author: Harry<br>
+            Rating: 5 Stars<br>
+            Date: March 25th, 2021
+          </span>
+          
+        </div>
+
+    </div>
+      
+    <div class="col-lg-7">
+        
+      <div class="reviews">
+          
+        <p>Schmeckt sehr gut. Jedoch kann man bemängeln, dass jedes mal das selbe Essen geliefert wird, obwohl man etwas anderes bestellt.</p>
+        
+      </div>
+        
+    </div>
+
+</div>
+
 
   </section>
