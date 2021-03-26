@@ -1,6 +1,6 @@
 <!-- Navbar burger menu -->
 <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
+    <div class="container collapse-box">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
           <h4 class="collapse-menu-title">About</h4>
@@ -20,24 +20,31 @@
 
 <!-- Header Navbar -->
 <div class="navbar sticky-top navbar-dark shadow-sm">
-    <div class="container">
-      <div class="d-flex align-items-center">
+    <div class="navbar-box">
+      
+      <div class="navbar-box-left">
       
         <a class="navbar-brand" [routerLink]="['/']">
           <strong>Lady Marmalade</strong>
         </a>
         
         <div class="nav-link-box">
-        <a class="nav-link" [routerLink]="['/']">Home</a>
-        <a class="nav-link" [routerLink]="['/shop']">Shop</a>
-        <a class="nav-link" [routerLink]="['/review']">Reviews</a>
-        <a class="nav-link" [routerLink]="['/about']">About</a>
+          <a class="nav-link" [routerLink]="['/']">Home</a>
+          <a class="nav-link" [routerLink]="['/shop']">Shop</a>
+          <a class="nav-link" [routerLink]="['/review']">Reviews</a>
+          <a class="nav-link" [routerLink]="['/about']">About</a>
         </div>
+
       </div>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" (click)="getBackToTop()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="navbar-box-right">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" (click)="getBackToTop()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </div>
+
     </div>
 </div>
 
@@ -46,19 +53,3 @@
       <a>With the purchase of any Lady Marmelade product, 10 percent of sales will be donated directly to the GlobalGiving Coronavirus Relief Fund.</a>
     </div>
 </div>
-
-<!-- <div class="container-fluide top-info-box">
-  <div class="container">
-    <div class="text-center top-info-text">
-      <a>With the purchase of any Lady Marmelade product, 10 percent of sales will be donated directly to the GlobalGiving Coronavirus Relief Fund.</a>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="container-fluide d-flex p-2 top-info">
-  <div class="container">
-    <div class="text-center top-info-text">
-      <a>With the purchase of any Lady Marmelade product, 10 percent of sales will be donated directly to the GlobalGiving Coronavirus Relief Fund.</a>
-    </div>
-  </div>
-</div> -->

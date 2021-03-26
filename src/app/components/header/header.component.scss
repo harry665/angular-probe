@@ -1,25 +1,49 @@
+// - - -
+// FRONT-END CSS
+// - - -
+
+// HEADER CSS
+
 .navbar {
+  display: flex;
+  justify-content: center;
   background-color: rgb(196, 119, 132);
 
-  .nav-link-box {
+  .navbar-box {
+    width: 80%;
     display: flex;
-    flex-direction: row;
-    margin-left: 50px;
+    justify-content: space-between;
 
-    .nav-link {
-      color: white;
-      font-size: 14px;
+    .navbar-box-left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .nav-link-box {
+        display: flex;
+        flex-direction: row;
+        margin-left: 30px;
+
+        .nav-link {
+          color: white;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .navbar-toggler {
+      border: 0px;
     }
   }
 }
+
+// HEADER COLLAPSE MENU CSS
 
 .collapse-menu-title {
   color: white;
 }
 
-.navbar-toggler {
-  border: 0px;
-}
+// INFO-BOX CSS
 
 .top-info-box {
   display: flex;
@@ -30,30 +54,54 @@
   font-size: 12px;
 }
 
-// MEDIA: MEDIUM SCREEN
-@media screen and (max-width: 767px) {
-  .sic {
-    margin-left: 0px;
-    margin-right: 0px;
+// - - -
+// MEDIA SCREEN CSS
+// - - -
+
+// MEDIA: LARGE SCREEN
+// Large devices (desktops, 992px and up)
+
+@media screen and (max-width: 992px) {
+  .top-info-text{
+    width: 80%;
   }
-  
-  .navbar {
-    background-color: rgb(196, 119, 132);
-  
-    .nav-link-box {
-      display: flex;
-      flex-direction: row;
-      margin-left: 0px;
-    }
+
+  .collapse-box{
+    width: 80%;
   }
 }
 
-@media screen and (max-width: 767px) {
+// MEDIA: MEDIUM SCREEN
+// Medium devices (tablets, 768px and up)
+
+@media screen and (max-width: 768px) {
+  .navbar-box{
+    width: 90%;
+  }
+  
   .top-info-box {
     height: 45px;
   }
+  
   .top-info-text {
     margin-left: 25px;
     margin-right: 25px;
+  }
+
+  .collapse-box{
+    width: 100%;
+  }
+}
+
+// MEDIA: SMALL SCREEN
+// Small devices (landscape phones, 576px and up)
+
+@media screen and (max-width: 576px) {
+  .navbar .navbar-box {
+    width: 100%;
+  }
+
+  .navbar .navbar-box .navbar-box-left .nav-link-box {
+    margin-left: 0px;
   }
 }
