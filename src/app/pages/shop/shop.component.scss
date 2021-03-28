@@ -1,15 +1,58 @@
+// - - -
+// FRONT-END CSS
+// - - -
+
 .products {
-  background-color: black;
-}
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
 
-.product1 {
-  //   background-color: white;
-}
+  .product-card-image {
+    position: relative;
+  }
 
-.product2 {
-  //   background-color: pink;
-}
+  .product-card-content {
+    background-color: white;
+    padding: 30% 1em 1em 1em;
+    margin-top: -25%;
 
-.product3 {
-  //   background-color: orange;
+    .product-card-info {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .product-card-title {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+
+    .product-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .product-card-footer-price {
+        display: flex;
+        font-size: 1.3em;
+      }
+
+      .product-card-footer-button {
+        width: 105px;
+        display: flex;
+        justify-content: space-between;
+
+        .product-card-button-style {
+          color: white;
+          background-color: rgb(196, 119, 132);
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          border: 1px solid rgb(196, 119, 132);
+          font-size: 24px;
+        }
+
+      }
+    }
+  }
 }

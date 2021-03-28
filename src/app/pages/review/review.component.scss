@@ -18,11 +18,15 @@ button.share:hover {
     padding-left: 5px;
     padding-right: 5px;
   }
+
+  .reviews-text {
+    word-wrap: break-word;
+  }
 }
 
 // MEDIA: LARGE SCREEN
 @media screen and (max-width: 1199px) {
-  .reviews {
+  .reviews-text {
     margin-left: 30px;
   }
 }
@@ -31,7 +35,7 @@ button.share:hover {
   .container {
     margin-top: 25px;
   }
-  .reviews {
+  .reviews-text {
     margin-top: 0px;
     margin-left: 0px;
   }

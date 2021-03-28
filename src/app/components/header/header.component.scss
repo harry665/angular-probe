@@ -31,6 +31,10 @@
       }
     }
 
+    .navbar-box-right {
+      display: flex;
+    }
+
     .navbar-toggler {
       border: 0px;
     }
@@ -52,6 +56,16 @@
   height: 35px;
   background-color: rgba(104, 104, 104, 0.242);
   font-size: 12px;
+}
+
+// BUTTON CSS
+
+.btn-basket {
+  color: white;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 // - - -
