@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { BasketItem } from 'src/app/models/basket';
+import { AppState } from 'src/app/models/state';
 
 @Component({
   selector: 'app-basket',
@@ -7,9 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasketComponent implements OnInit {
 
-  constructor() { }
+  basketItems: Observable<BasketItem[]>;
+
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.basketItems = this.store.select(store => store.basket)
   }
 
 }

@@ -17,7 +17,13 @@
 
         <div *ngFor="let item of items" class="col-md-4" >
 
-            <app-shop-item imageUrl="{{ item.imageUrl }}" subTitle="{{ item.subTitle }}" title="{{ item.title }}" price="{{ item.price }}"></app-shop-item>
+            <app-shop-item
+                id="{{ item.id }}"
+                imageUrl="{{ item.imageUrl }}" 
+                subTitle="{{ item.subTitle }}" 
+                title="{{ item.title }}" 
+                price="{{ item.price }}"
+            ></app-shop-item>
 
         </div>
         

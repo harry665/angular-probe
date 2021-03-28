@@ -1,10 +1,9 @@
 // Shop item type
 
-export interface ShopItem {
-
-    imageUrl: string,
+export interface Product {
+    id: string
+    imageUrl: string
     subTitle: string
-    title: string,
-    price: string,
-  
+    title: string
+    price: string
 }

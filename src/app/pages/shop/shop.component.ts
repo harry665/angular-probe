@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShopItem } from 'src/app/models/shop-item';
+import { ProductApiService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-shop',
@@ -8,22 +8,9 @@ import { ShopItem } from 'src/app/models/shop-item';
 })
 export class ShopComponent implements OnInit {
 
-  items: ShopItem[] = [
-    {
-      imageUrl: "http://i.epvpimg.com/zwmkfab.png",
-      subTitle:"Special Donut",
-      title:"Vegan Marmalade Donut",
-      price: "4.99"
-    },
-    {
-      imageUrl: "http://i.epvpimg.com/BotNcab.png",
-      subTitle:"Special Product",
-      title:"Homemade Marmalade",
-      price: "14.99"
-    },
-  ]
+  items = this.productApiService.getAll()
 
-  constructor() { }
+  constructor(private productApiService: ProductApiService) { }
 
   ngOnInit(): void {
   }

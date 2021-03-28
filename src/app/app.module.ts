@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -12,6 +15,8 @@ import { BasketComponent } from './pages/basket/basket.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ReviewComponent } from './pages/review/review.component';
 import { ShopComponent } from './pages/shop/shop.component';
+import { ProductApiService } from './services/product.service';
+import { BasketReducer } from './store/reducers/basket.reducer';
 
 
 @NgModule({
@@ -31,9 +36,13 @@ import { ShopComponent } from './pages/shop/shop.component';
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({
+      basket: BasketReducer
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
-  providers: [],
+  providers: [ProductApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
