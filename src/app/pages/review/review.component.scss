@@ -39,7 +39,7 @@ button.share:hover {
     margin-top: 0px;
     margin-left: 0px;
   }
-  .reviews-box{
+  .reviews-box {
     margin-bottom: 10px;
   }
 }
@@ -75,18 +75,18 @@ button.share:hover {
 
 // MODAL INVALID/VALID FOR INPUT AND TEXTAREA
 
-input.ng-invalid{
+input.ng-invalid {
   border-left: 5px solid red;
 }
 
-input.ng-valid{
+input.ng-valid {
   border-left: 5px solid rgb(1, 196, 1);
 }
 
-textarea.ng-invalid{
+textarea.ng-invalid {
   border-left: 5px solid red;
 }
 
-textarea.ng-valid{
+textarea.ng-valid {
   border-left: 5px solid rgb(1, 196, 1);
 }

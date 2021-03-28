@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ShopItemComponent } from './components/shop-item/shop-item.component';
 import { AboutComponent } from './pages/about/about.component';
+import { BasketComponent } from './pages/basket/basket.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ReviewComponent } from './pages/review/review.component';
 import { ShopComponent } from './pages/shop/shop.component';
@@ -22,7 +23,8 @@ import { ShopComponent } from './pages/shop/shop.component';
     AboutComponent,
     ReviewComponent,
     ShopComponent,
-    ShopItemComponent
+    ShopItemComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,

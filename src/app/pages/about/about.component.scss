@@ -1,0 +1,15 @@
+.policy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.policy-notice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .policy-notice-text {
+    text-align: left;
+  }
+}
