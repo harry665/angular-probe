@@ -76,11 +76,11 @@
 // Large devices (desktops, 992px and up)
 
 @media screen and (max-width: 992px) {
-  .top-info-text{
+  .top-info-text {
     width: 80%;
   }
 
-  .collapse-box{
+  .collapse-box {
     width: 80%;
   }
 }
@@ -89,20 +89,20 @@
 // Medium devices (tablets, 768px and up)
 
 @media screen and (max-width: 768px) {
-  .navbar-box{
+  .navbar-box {
     width: 90%;
   }
-  
+
   .top-info-box {
     height: 45px;
   }
-  
+
   .top-info-text {
     margin-left: 25px;
     margin-right: 25px;
   }
 
-  .collapse-box{
+  .collapse-box {
     width: 100%;
   }
 }
