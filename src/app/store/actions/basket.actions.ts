@@ -7,3 +7,9 @@ export class AddBasketItemAction implements Action {
 
   constructor(public payload: BasketItem) { }
 }
+
+export class ReduceBasketItemAction implements Action {
+  readonly type = BasketActionTypes.REDUCE_BASKET_ITEM
+
+  constructor(public payload: string) { }
+}

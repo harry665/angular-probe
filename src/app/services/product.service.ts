@@ -10,20 +10,20 @@ export class ProductApiService {
             imageUrl: "http://i.epvpimg.com/zwmkfab.png",
             subTitle:"Special Donut",
             title:"Vegan Marmalade Donut",
-            price: "4.99"
+            price: 4.99
         },
         {
             id: "2",
             imageUrl: "http://i.epvpimg.com/BotNcab.png",
             subTitle:"Special Product",
             title:"Homemade Marmalade",
-            price: "14.99"
+            price: 14.99
         },
     ]
 
     constructor() {}
 
-    create(id: string, imageUrl: string, subTitle: string, title: string, price: string): void {
+    create(id: string, imageUrl: string, subTitle: string, title: string, price: number): void {
         const newProduct: Product = {
             id,
             imageUrl,

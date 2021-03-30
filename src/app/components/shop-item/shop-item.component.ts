@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { BasketItem } from 'src/app/models/basket';
 import { AppState } from 'src/app/models/state';
 import { ProductApiService } from 'src/app/services/product.service';
-import { AddBasketItemAction } from 'src/app/store/actions/basket.actions';
+import { AddBasketItemAction, ReduceBasketItemAction } from 'src/app/store/actions/basket.actions';
 
 @Component({
   selector: 'app-shop-item',
@@ -39,6 +39,13 @@ export class ShopItemComponent implements OnInit {
     }
 
     this.store.dispatch(new AddBasketItemAction(newBasketItem));
+
+  }  
+
+  reduceFromBasket() {
+    const product = this.productApiService.get(this.id)
+
+    this.store.dispatch(new ReduceBasketItemAction(product.id));
 
   }  
 }

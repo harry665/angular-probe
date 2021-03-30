@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { BasketItem } from 'src/app/models/basket';
 import { AppState } from 'src/app/models/state';
 
@@ -11,12 +10,21 @@ import { AppState } from 'src/app/models/state';
 })
 export class BasketComponent implements OnInit {
 
-  basketItems: Observable<BasketItem[]>;
+  totalPrice:number = 0
+
+  basketItems: BasketItem[];
 
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.basketItems = this.store.select(store => store.basket)
+    
+    this.store.select(store => store.basket).subscribe((basketItems) => {
+      this.basketItems = basketItems
+
+      for (const basketItem of basketItems) {
+        this.totalPrice += basketItem.price * basketItem.quantity
+      }
+    })
   }
 
 }

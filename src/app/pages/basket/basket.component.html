@@ -16,7 +16,7 @@
 
     <div class="container pb-5">
 
-        <div *ngFor="let basketItem of basketItems | async" class="row product-list">
+        <div *ngFor="let basketItem of basketItems" class="row product-list">
             <div class="col product-list-item">
 
                 <div class="col-1 product-list-item-amount">- {{ basketItem.quantity }} +</div>
@@ -34,34 +34,17 @@
                     </button>
                 </div>
                 
-                <div class="col-1 product-list-item-price">{{ basketItem.price }} €</div>
+                <div class="col-1 product-list-item-price">{{ basketItem.price * basketItem.quantity | currency:'EUR':true }}</div>
 
             </div>
         </div>
-<!-- 
-        <div class="row product-list">
-            <div class="col product-list-item">
-
-                <div class="col-1 product-list-item-amount">- 1 +</div>
-
-                <div class="col-9 product-list-item-info">
-                    <div class="product-list-item-info-image"><img src="http://i.epvpimg.com/BotNcab.png"></div>
-                    <div class="product-list-item-info-name">Homemade Marmalade</div>
-                </div>
-
-                <div class="col-1 product-list-item-delete"><button class="product-list-item-delete-button"><i class="fas fa-trash-alt"></i></button></div>
-                
-                <div class="col-1 product-list-item-price">14,99€</div>
-
-            </div>
-        </div> -->
 
         <div class="row product-list-checkout">
 
             <div class="col product-list-checkout-box">
 
                 <div class="col-8 product-list-checkout-box-coupon">
-                    <div class="product-list-checkout-box-coupon-info">Gutschein hinzufügen (optional):</div>
+                    <div class="product-list-checkout-box-coupon-info">Discount code (optional):</div>
                     <div class="product-list-checkout-box-coupon-input">
                         <div class="product-list-checkout-box-coupon-input-field"><input></div>
                         <div class="product-list-checkout-box-coupon-input-button"><button class="product-list-checkout-box-coupon-input-button-style">Ok</button></div>
@@ -69,8 +52,8 @@
                 </div>
 
                 <div class="col-4 product-list-checkout-box-order">
-                    <div class="product-list-checkout-box-amount">Summe (1 Artikel):</div>
-                    <div class="product-list-checkout-box-totalprice">19,98€</div>
+                    <div class="product-list-checkout-box-amount">Total (1 article):</div>
+                    <div class="product-list-checkout-box-totalprice">{{ totalPrice | currency:'EUR':true }}</div>
                 </div>
 
             </div>

@@ -13,10 +13,10 @@
         </div>
         <div class="product-card-footer">
             <div class="product-card-footer-price">
-                <span>{{ price }} Euro</span>
+                <span>{{ price | currency:'Euro':true }}</span>
             </div>
             <div class="product-card-footer-button">
-                <button class="product-card-button-style">-</button>
+                <button class="product-card-button-style" (click)="reduceFromBasket()">-</button>
                 <button class="product-card-button-style" (click)="addToBasket()">+</button>
             </div>
         </div>

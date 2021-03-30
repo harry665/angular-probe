@@ -1,4 +1,7 @@
-import { NgModule } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+import localeDeExtra from '@angular/common/locales/extra/de';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -18,6 +21,7 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { ProductApiService } from './services/product.service';
 import { BasketReducer } from './store/reducers/basket.reducer';
 
+registerLocaleData(localeDe, 'de-DE', localeDeExtra);
 
 @NgModule({
   declarations: [
@@ -42,7 +46,13 @@ import { BasketReducer } from './store/reducers/basket.reducer';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
-  providers: [ProductApiService],
+  providers: [
+    ProductApiService, 
+    {
+      provide: LOCALE_ID,
+      useValue: 'de-DE'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

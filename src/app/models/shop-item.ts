@@ -5,5 +5,5 @@ export interface Product {
     imageUrl: string
     subTitle: string
     title: string
-    price: string
+    price: number
 }
