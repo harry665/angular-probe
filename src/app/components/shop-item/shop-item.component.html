@@ -15,8 +15,11 @@
             <div class="product-card-footer-price">
                 <span>{{ price | currency:'Euro':true }}</span>
             </div>
+            <div class="product-card-footer-counter">
+                <span *ngIf="basketItemQuantity">{{ basketItemQuantity }}x</span>
+            </div>
             <div class="product-card-footer-button">
-                <button class="product-card-button-style" (click)="reduceFromBasket()">-</button>
+                <button class="product-card-button-style" (click)="reduceFromBasket()" [disabled]="!basketItemQuantity">-</button>
                 <button class="product-card-button-style" (click)="addToBasket()">+</button>
             </div>
         </div>

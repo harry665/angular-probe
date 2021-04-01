@@ -13,8 +13,9 @@
 
 <!-- BASKET CONTENT SECTION -->
 <section>
+    <div *ngIf="!basketQuantity" class="container text-center lead text-muted" style="font-size:24px">- Your basket is empty -</div>
 
-    <div class="container pb-5">
+    <div *ngIf="basketQuantity" class="container pb-5">
 
         <div *ngFor="let basketItem of basketItems" class="row product-list">
             <div class="col product-list-item">
@@ -52,7 +53,7 @@
                 </div>
 
                 <div class="col-4 product-list-checkout-box-order">
-                    <div class="product-list-checkout-box-amount">Total (1 article):</div>
+                    <div class="product-list-checkout-box-amount">Total ({{ basketQuantity }} article):</div>
                     <div class="product-list-checkout-box-totalprice">{{ totalPrice | currency:'EUR':true }}</div>
                 </div>
 

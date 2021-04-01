@@ -10,21 +10,27 @@ import { AppState } from 'src/app/models/state';
 })
 export class BasketComponent implements OnInit {
 
-  totalPrice:number = 0
+  totalPrice: number = 0
+  
+  basketQuantity: number = 0
+  
+  basketItems: BasketItem[] = [];
 
-  basketItems: BasketItem[];
-
+  
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     
+    // Basket total price and quantity
     this.store.select(store => store.basket).subscribe((basketItems) => {
       this.basketItems = basketItems
+      this.basketQuantity = 0
 
       for (const basketItem of basketItems) {
         this.totalPrice += basketItem.price * basketItem.quantity
+        this.basketQuantity += basketItem.quantity
       }
     })
   }
-
+  
 }

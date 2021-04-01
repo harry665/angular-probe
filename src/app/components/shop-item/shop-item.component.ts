@@ -18,9 +18,24 @@ export class ShopItemComponent implements OnInit {
   @Input() subTitle: string;
   @Input() price: string;
 
+  basketItemQuantity: number = 0
+
   constructor(private store: Store<AppState>, private productApiService: ProductApiService) { }
 
   ngOnInit(): void {
+        // Basket total price and quantity
+        this.store.select(store => store.basket).subscribe((basketItems) => {    
+          
+          for (const basketItem of basketItems) {
+            if (basketItem.productId === this.id) {
+               this.basketItemQuantity = basketItem.quantity
+               
+               return
+            }
+          }
+
+          this.basketItemQuantity = 0
+        })
   }
 
   addToBasket() {
