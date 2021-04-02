@@ -50,7 +50,6 @@ export class ReviewComponent implements OnInit {
         'text': '',
         'rating': ''
       })
-  
     }
     
     // Gets current date
@@ -87,7 +86,6 @@ export class ReviewComponent implements OnInit {
       ]
   
       return monthNames[month]
-  
     }
 
 }

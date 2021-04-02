@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BasketItem } from 'src/app/models/basket';
 import { AppState } from 'src/app/models/state';
+import { ProductApiService } from 'src/app/services/product.service';
+import { RemoveBasketItemAction } from 'src/app/store/actions/basket.actions';
 
 @Component({
   selector: 'app-basket',
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss']
 })
-export class BasketComponent implements OnInit {
 
+export class BasketComponent implements OnInit {
   totalPrice: number = 0
   
   basketQuantity: number = 0
@@ -17,7 +19,7 @@ export class BasketComponent implements OnInit {
   basketItems: BasketItem[] = [];
 
   
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>, private productApiService: ProductApiService) { }
 
   ngOnInit(): void {
     
@@ -32,5 +34,11 @@ export class BasketComponent implements OnInit {
       }
     })
   }
+
+  removeFromBasket(id:string) {    
+    const product = this.productApiService.get(id)
+
+    this.store.dispatch(new RemoveBasketItemAction(product.id));
+  }  
   
 }

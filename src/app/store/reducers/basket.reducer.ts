@@ -1,12 +1,12 @@
 import { BasketItem } from 'src/app/models/basket';
-import { AddBasketItemAction, ReduceBasketItemAction } from '../actions/basket.actions';
+import { AddBasketItemAction, ReduceBasketItemAction, RemoveBasketItemAction } from '../actions/basket.actions';
 import { BasketActionTypes } from '../actions/types';
 
 
 
 const initialState: BasketItem[] = [];
 
-export function BasketReducer(basketItems: BasketItem[] = initialState, action: AddBasketItemAction | ReduceBasketItemAction) {
+export function BasketReducer(basketItems: BasketItem[] = initialState, action: AddBasketItemAction | ReduceBasketItemAction | RemoveBasketItemAction) {
   switch (action.type) {
     case BasketActionTypes.ADD_BASKET_ITEM: {
       return addItem(basketItems, action)
@@ -14,6 +14,10 @@ export function BasketReducer(basketItems: BasketItem[] = initialState, action: 
 
     case BasketActionTypes.REDUCE_BASKET_ITEM: {
       return reduceItem(basketItems, action)
+    }
+
+    case BasketActionTypes.REMOVE_BASKET_ITEM: {
+      return removeItem(basketItems, action)
     }
 
     default: {
@@ -66,6 +70,23 @@ function reduceItem(basketItems: BasketItem[], action: ReduceBasketItemAction): 
       }
       
     } else {
+      newBasketItems.push(basketItem)
+    }
+  }
+  
+  return newBasketItems
+}
+
+function removeItem(basketItems: BasketItem[], action: RemoveBasketItemAction) {
+  const basketItemIndex = basketItems.findIndex(basketItem => basketItem.productId === action.payload)
+
+  if(basketItemIndex === -1) {
+    return basketItems;
+  }
+
+  const newBasketItems: BasketItem[] = []
+  for (const [index, basketItem] of basketItems.entries()) {
+    if(index !== basketItemIndex) {
       newBasketItems.push(basketItem)
     }
   }
