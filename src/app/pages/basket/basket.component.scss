@@ -86,11 +86,19 @@ img {
         align-items: center;
         margin-left: 10px;
 
-        .product-list-checkout-box-coupon-input-button-style {
+        .product-list-checkout-box-coupon-add-button-style {
           color: white;
           background-color: rgb(196, 119, 132);
           border-color: rgb(196, 119, 132);
         }
+      }
+
+      .product-list-checkout-box-coupon-remove-button-style {
+        color: blue;
+        font-size: 14px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
       }
     }
   }
@@ -98,6 +106,7 @@ img {
   .product-list-checkout-box-order {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 
     .product-list-checkout-box-amount {
       margin-right: 45px;

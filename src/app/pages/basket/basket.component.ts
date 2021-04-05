@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BasketItem } from 'src/app/models/basket';
+import { Basket } from 'src/app/models/basket';
 import { AppState } from 'src/app/models/state';
 import { ProductApiService } from 'src/app/services/product.service';
 import { AddBasketDiscountAction, RemoveBasketDiscountAction, RemoveBasketItemAction } from 'src/app/store/actions/basket.actions';
@@ -19,7 +19,9 @@ export class BasketComponent implements OnInit {
   
   basketQuantity: number = 0
   
-  basketItems: BasketItem[] = [];
+  basket: Basket = {
+    items: []
+  };
 
   
   constructor(private store: Store<AppState>, private productApiService: ProductApiService) { }
@@ -28,7 +30,8 @@ export class BasketComponent implements OnInit {
     
     // Basket total price and quantity
     this.store.select(store => store.basket).subscribe((basket) => {
-      this.basketItems = basket.items
+      this.basket.items = basket.items
+      this.basket.discountCode = basket.discountCode
 
       let basketQuantity = 0
       let totalPrice = 0
@@ -57,7 +60,9 @@ export class BasketComponent implements OnInit {
     if (['EASTER21'].includes(this.discountCode)){
       
       this.store.dispatch(new AddBasketDiscountAction(this.discountCode))
+      this.discountCode = undefined
     }
+
   }
 
   removeCoupon(){
