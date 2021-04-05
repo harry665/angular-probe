@@ -12,6 +12,9 @@ import { RemoveBasketItemAction } from 'src/app/store/actions/basket.actions';
 })
 
 export class BasketComponent implements OnInit {
+
+  discountCode: string
+
   totalPrice: number = 0
   
   basketQuantity: number = 0
@@ -39,6 +42,10 @@ export class BasketComponent implements OnInit {
     const product = this.productApiService.get(id)
 
     this.store.dispatch(new RemoveBasketItemAction(product.id));
-  }  
+  }
+
+  addCoupon(discountCode){
+    
+  }
   
 }

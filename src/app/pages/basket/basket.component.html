@@ -47,13 +47,13 @@
                 <div class="col-8 product-list-checkout-box-coupon">
                     <div class="product-list-checkout-box-coupon-info">Discount code (optional):</div>
                     <div class="product-list-checkout-box-coupon-input">
-                        <div class="product-list-checkout-box-coupon-input-field"><input></div>
-                        <div class="product-list-checkout-box-coupon-input-button"><button class="product-list-checkout-box-coupon-input-button-style">Ok</button></div>
+                        <div class="product-list-checkout-box-coupon-input-field"><input [(ngModel)]="discountCode"></div>
+                        <div class="product-list-checkout-box-coupon-input-button"><button class="product-list-checkout-box-coupon-input-button-style" (click)="addCoupon(discountCode)">Ok</button></div>
                     </div>
                 </div>
 
                 <div class="col-4 product-list-checkout-box-order">
-                    <div class="product-list-checkout-box-amount">Total ({{ basketQuantity }} article):</div>
+                    <div class="product-list-checkout-box-amount">Total ({{ basketQuantity }} <span>{{ basketQuantity === 1 ? 'article' : 'articles' }}</span>):</div>
                     <div class="product-list-checkout-box-totalprice">{{ totalPrice | currency:'EUR':true }}</div>
                 </div>
 
