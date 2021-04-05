@@ -19,3 +19,15 @@ export class RemoveBasketItemAction implements Action {
 
   constructor(public payload: string) { }
 }
+
+export class AddBasketDiscountAction implements Action {
+  readonly type = BasketActionTypes.ADD_BASKET_DISCOUNT
+
+  constructor(public payload: string) { }
+}
+
+export class RemoveBasketDiscountAction implements Action {
+  readonly type = BasketActionTypes.REMOVE_BASKET_DISCOUNT
+
+  constructor() { }
+}

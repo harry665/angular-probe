@@ -26,11 +26,6 @@ export class ShopItemComponent implements OnInit {
         // Basket total price and quantity
         this.store.select(store => store.basket).subscribe((basket) => {   
           
-          console.log('öküz');
-
-          console.log(basket);
-          
-          
           for (const basketItem of basket.items) {
             if (basketItem.productId === this.id) {
                this.basketItemQuantity = basketItem.quantity

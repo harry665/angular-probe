@@ -48,7 +48,9 @@
                     <div class="product-list-checkout-box-coupon-info">Discount code (optional):</div>
                     <div class="product-list-checkout-box-coupon-input">
                         <div class="product-list-checkout-box-coupon-input-field"><input [(ngModel)]="discountCode"></div>
-                        <div class="product-list-checkout-box-coupon-input-button"><button class="product-list-checkout-box-coupon-input-button-style" (click)="addCoupon(discountCode)">Ok</button></div>
+                        <div class="product-list-checkout-box-coupon-input-button"><button class="product-list-checkout-box-coupon-input-button-style" (click)="addCoupon()">Ok</button></div>
+                        <div class="product-list-checkout-box-coupon-input-button"><button class="product-list-checkout-box-coupon-input-button-style" (click)="removeCoupon()">Remove</button></div>
+
                     </div>
                 </div>
 

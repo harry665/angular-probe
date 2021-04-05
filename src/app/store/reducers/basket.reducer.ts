@@ -1,5 +1,5 @@
 import { Basket } from 'src/app/models/basket';
-import { AddBasketItemAction, ReduceBasketItemAction, RemoveBasketItemAction } from '../actions/basket.actions';
+import { AddBasketDiscountAction, AddBasketItemAction, ReduceBasketItemAction, RemoveBasketDiscountAction, RemoveBasketItemAction } from '../actions/basket.actions';
 import { BasketActionTypes } from '../actions/types';
 
 
@@ -7,7 +7,7 @@ const initialState: Basket = {
   items: []
 };
 
-export function BasketReducer(basket: Basket = initialState, action: AddBasketItemAction | ReduceBasketItemAction | RemoveBasketItemAction) {
+export function BasketReducer(basket: Basket = initialState, action: AddBasketItemAction | ReduceBasketItemAction | RemoveBasketItemAction | AddBasketDiscountAction | RemoveBasketDiscountAction) {
   switch (action.type) {
     case BasketActionTypes.ADD_BASKET_ITEM: {
       return addItem(basket, action)
@@ -19,6 +19,14 @@ export function BasketReducer(basket: Basket = initialState, action: AddBasketIt
 
     case BasketActionTypes.REMOVE_BASKET_ITEM: {
       return removeItem(basket, action)
+    }
+
+    case BasketActionTypes.ADD_BASKET_DISCOUNT: {
+      return addDiscount(basket,action)
+    }
+
+    case BasketActionTypes.REMOVE_BASKET_DISCOUNT: {
+      return removeDiscount(basket,action)
     }
 
     default: {
@@ -102,6 +110,24 @@ function removeItem(basket: Basket, action: RemoveBasketItemAction): Basket {
     if(index !== basketItemIndex) {
       newBasket.items.push(basketItem)
     }
+  }
+  
+  return newBasket
+}
+
+function addDiscount(basket:Basket, action: AddBasketDiscountAction): Basket {
+  const newBasket: Basket = {
+    ...basket,
+    discountCode: action.payload
+  }
+  
+  return newBasket
+}
+
+function removeDiscount(basket:Basket, action: RemoveBasketDiscountAction): Basket {
+  const newBasket: Basket = {
+    ...basket,
+    discountCode: undefined
   }
   
   return newBasket

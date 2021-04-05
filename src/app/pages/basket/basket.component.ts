@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { BasketItem } from 'src/app/models/basket';
 import { AppState } from 'src/app/models/state';
 import { ProductApiService } from 'src/app/services/product.service';
-import { RemoveBasketItemAction } from 'src/app/store/actions/basket.actions';
+import { AddBasketDiscountAction, RemoveBasketDiscountAction, RemoveBasketItemAction } from 'src/app/store/actions/basket.actions';
 
 @Component({
   selector: 'app-basket',
@@ -29,12 +29,21 @@ export class BasketComponent implements OnInit {
     // Basket total price and quantity
     this.store.select(store => store.basket).subscribe((basket) => {
       this.basketItems = basket.items
-      this.basketQuantity = 0
+
+      let basketQuantity = 0
+      let totalPrice = 0
 
       for (const basketItem of basket.items) {
-        this.totalPrice += basketItem.price * basketItem.quantity
-        this.basketQuantity += basketItem.quantity
+        totalPrice += basketItem.price * basketItem.quantity
+        basketQuantity += basketItem.quantity
       }
+
+      if(basket.discountCode) {
+        totalPrice *= 0.85
+      }
+
+      this.totalPrice = totalPrice
+      this.basketQuantity = basketQuantity
     })
   }
 
@@ -44,8 +53,15 @@ export class BasketComponent implements OnInit {
     this.store.dispatch(new RemoveBasketItemAction(product.id));
   }
 
-  addCoupon(discountCode){
-    
+  addCoupon(){
+    if (['EASTER21'].includes(this.discountCode)){
+      
+      this.store.dispatch(new AddBasketDiscountAction(this.discountCode))
+    }
+  }
+
+  removeCoupon(){
+      this.store.dispatch(new RemoveBasketDiscountAction())
   }
   
 }
