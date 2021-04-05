@@ -24,9 +24,14 @@ export class ShopItemComponent implements OnInit {
 
   ngOnInit(): void {
         // Basket total price and quantity
-        this.store.select(store => store.basket).subscribe((basketItems) => {    
+        this.store.select(store => store.basket).subscribe((basket) => {   
           
-          for (const basketItem of basketItems) {
+          console.log('öküz');
+
+          console.log(basket);
+          
+          
+          for (const basketItem of basket.items) {
             if (basketItem.productId === this.id) {
                this.basketItemQuantity = basketItem.quantity
                

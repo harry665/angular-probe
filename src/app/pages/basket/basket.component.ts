@@ -27,11 +27,11 @@ export class BasketComponent implements OnInit {
   ngOnInit(): void {
     
     // Basket total price and quantity
-    this.store.select(store => store.basket).subscribe((basketItems) => {
-      this.basketItems = basketItems
+    this.store.select(store => store.basket).subscribe((basket) => {
+      this.basketItems = basket.items
       this.basketQuantity = 0
 
-      for (const basketItem of basketItems) {
+      for (const basketItem of basket.items) {
         this.totalPrice += basketItem.price * basketItem.quantity
         this.basketQuantity += basketItem.quantity
       }

@@ -1,3 +1,8 @@
+export interface Basket {
+    items: BasketItem[]
+    discountCode?: string
+  }
+
 export interface BasketItem {
     id: string;
     productId: string

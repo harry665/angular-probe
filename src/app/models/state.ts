@@ -1,5 +1,5 @@
-import { BasketItem } from './basket';
+import { Basket } from './basket';
 
 export interface AppState {
-  readonly basket: BasketItem[]
+  readonly basket: Basket
 }
