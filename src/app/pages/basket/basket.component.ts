@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Basket } from 'src/app/models/basket';
 import { AppState } from 'src/app/models/state';
 import { ProductApiService } from 'src/app/services/product.service';
+import { StoreService } from 'src/app/services/store.service';
 import { AddBasketDiscountAction, RemoveBasketDiscountAction, RemoveBasketItemAction } from 'src/app/store/actions/basket.actions';
 
 @Component({
@@ -15,6 +16,8 @@ export class BasketComponent implements OnInit {
 
   discountCode: string
 
+  discountCodeTest: string
+
   totalPrice: number = 0
   
   basketQuantity: number = 0
@@ -23,8 +26,7 @@ export class BasketComponent implements OnInit {
     items: []
   };
 
-  
-  constructor(private store: Store<AppState>, private productApiService: ProductApiService) { }
+  constructor(private store: Store<AppState>, private productApiService: ProductApiService, private storeService: StoreService) { }
 
   ngOnInit(): void {
     
@@ -62,11 +64,18 @@ export class BasketComponent implements OnInit {
       this.store.dispatch(new AddBasketDiscountAction(this.discountCode))
       this.discountCode = undefined
     }
-
   }
 
   removeCoupon(){
       this.store.dispatch(new RemoveBasketDiscountAction())
+  }
+
+  addToBasket(id: string) {
+    this.storeService.addToBasket(id)
+  }  
+
+  reduceFromBasket(id: string) {
+    this.storeService.reduceFromBasket(id)
   }
   
 }

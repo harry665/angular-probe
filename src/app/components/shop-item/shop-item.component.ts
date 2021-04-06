@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BasketItem } from 'src/app/models/basket';
 import { AppState } from 'src/app/models/state';
-import { ProductApiService } from 'src/app/services/product.service';
-import { AddBasketItemAction, ReduceBasketItemAction } from 'src/app/store/actions/basket.actions';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-shop-item',
@@ -20,7 +18,7 @@ export class ShopItemComponent implements OnInit {
 
   basketItemQuantity: number = 0
 
-  constructor(private store: Store<AppState>, private productApiService: ProductApiService) { }
+  constructor(private store: Store<AppState>, private storeService: StoreService) { }
 
   ngOnInit(): void {
         // Basket total price and quantity
@@ -39,28 +37,11 @@ export class ShopItemComponent implements OnInit {
   }
 
   addToBasket() {
-
-    const product = this.productApiService.get(this.id)
-
-    const newBasketItem: BasketItem = {
-      id: "1",
-      productId: product.id,
-      quantity: 1,
-      name: product.title,
-      imageUrl: product.imageUrl,
-      subTitle: product.subTitle,
-      title: product.title,
-      price: product.price
-    }
-
-    this.store.dispatch(new AddBasketItemAction(newBasketItem));
-
+    this.storeService.addToBasket(this.id)
   }  
 
   reduceFromBasket() {
-    const product = this.productApiService.get(this.id)
-
-    this.store.dispatch(new ReduceBasketItemAction(product.id));
-
-  }  
+    this.storeService.reduceFromBasket(this.id)
+  }
+  
 }

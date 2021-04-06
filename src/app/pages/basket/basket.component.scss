@@ -21,9 +21,16 @@ img {
     padding-top: 10px;
     padding-bottom: 10px;
 
-    .product-list-item-amount {
+    .product-list-item-quantity {
       display: flex;
       justify-content: center;
+
+      .product-list-item-quantity-button {
+        font-size: 14px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
     }
 
     .product-list-item-info {
@@ -78,8 +85,8 @@ img {
     .product-list-checkout-box-coupon-input {
       display: flex;
       flex-direction: row;
-      width: 10px;
-      padding-left: 10px;
+      align-items: center;
+      margin-left: 10px;
 
       .product-list-checkout-box-coupon-input-button {
         display: flex;
@@ -101,6 +108,11 @@ img {
         cursor: pointer;
       }
     }
+
+    .product-list-checkout-box-coupon-input-info {
+      color: green;
+      margin-left: 10px;
+    }
   }
 
   .product-list-checkout-box-order {
@@ -108,13 +120,15 @@ img {
     justify-content: flex-end;
     align-items: center;
 
-    .product-list-checkout-box-amount {
+    .product-list-checkout-box-quantity {
       margin-right: 45px;
+      width: 80%;
     }
 
     .product-list-checkout-box-totalprice {
       display: flex;
       justify-content: flex-end;
+      width: 20%;
     }
   }
 }

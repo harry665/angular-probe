@@ -19,6 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ReviewComponent } from './pages/review/review.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { ProductApiService } from './services/product.service';
+import { StoreService } from './services/store.service';
 import { BasketReducer } from './store/reducers/basket.reducer';
 
 registerLocaleData(localeDe, 'de-DE', localeDeExtra);
@@ -47,7 +48,8 @@ registerLocaleData(localeDe, 'de-DE', localeDeExtra);
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
-    ProductApiService, 
+    ProductApiService,
+    StoreService, 
     {
       provide: LOCALE_ID,
       useValue: 'de-DE'

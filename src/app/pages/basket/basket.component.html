@@ -4,7 +4,7 @@
 
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8">
-                <h2 class="fw-light">Your basket</h2>
+                <h2 *ngIf="basketQuantity" class="fw-light">Your basket</h2>
             </div>
         </div>
 
@@ -20,7 +20,11 @@
         <div *ngFor="let basketItem of basket.items" class="row product-list">
             <div class="col product-list-item">
 
-                <div class="col-1 product-list-item-amount">- {{ basketItem.quantity }} +</div>
+                <div class="col-1 product-list-item-quantity">
+                    <button class="product-list-item-quantity-button" (click)="reduceFromBasket(basketItem.productId)">-</button>
+                    <span>{{ basketItem.quantity }}</span>
+                    <button class="product-list-item-quantity-button" (click)="addToBasket(basketItem.productId)">+</button>
+                </div>
 
                 <div class="col-9 product-list-item-info">
                     <div class="product-list-item-info-image" >
@@ -44,7 +48,7 @@
 
             <div class="col product-list-checkout-box">
 
-                <div class="col-8 product-list-checkout-box-coupon">
+                <div class="col-9 product-list-checkout-box-coupon">
                     <div class="product-list-checkout-box-coupon-info">Discount code (optional):</div>
                     <div class="product-list-checkout-box-coupon-input">
                         <div class="product-list-checkout-box-coupon-input-field"><input [(ngModel)]="discountCode"></div>
@@ -52,11 +56,12 @@
                             <button class="product-list-checkout-box-coupon-add-button-style" (click)="addCoupon()">Ok</button>
                             <button *ngIf="basket.discountCode" class="product-list-checkout-box-coupon-remove-button-style" (click)="removeCoupon()">[Remove]</button>
                         </div>
+                        <span *ngIf="basket.discountCode" class="product-list-checkout-box-coupon-input-info">Code "{{ basket.discountCode }}" applied!</span>
                     </div>
                 </div>
 
-                <div class="col-4 product-list-checkout-box-order">
-                    <div class="product-list-checkout-box-amount">Total ({{ basketQuantity }} <span>{{ basketQuantity === 1 ? 'article' : 'articles' }}</span>):</div>
+                <div class="col-3 product-list-checkout-box-order">
+                    <div class="product-list-checkout-box-quantity">Total ({{ basketQuantity }} <span>{{ basketQuantity <= 1  ? 'product' : 'products' }}</span>):</div>
                     <div class="product-list-checkout-box-totalprice">{{ totalPrice | currency:'EUR':true }}</div>
                 </div>
 
