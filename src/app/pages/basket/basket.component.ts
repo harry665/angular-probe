@@ -16,8 +16,6 @@ export class BasketComponent implements OnInit {
 
   discountCode: string
 
-  discountCodeTest: string
-
   totalPrice: number = 0
   
   basketQuantity: number = 0

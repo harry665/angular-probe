@@ -6,32 +6,34 @@ import { AddBasketItemAction, ReduceBasketItemAction } from "../store/actions/ba
 import { ProductApiService } from "./product.service";
 
 @Injectable()
-export class StoreService {
+export class StoreService{
 
-    constructor(private store: Store<AppState>, private productApiService: ProductApiService) {}
+  basketQuantity: number = 0
 
-    addToBasket(id: string) {
+  constructor(private store: Store<AppState>, private productApiService: ProductApiService) {}
 
-        const product = this.productApiService.get(id)
-    
-        const newBasketItem: BasketItem = {
-          id: "1",
-          productId: product.id,
-          quantity: 1,
-          name: product.title,
-          imageUrl: product.imageUrl,
-          subTitle: product.subTitle,
-          title: product.title,
-          price: product.price
-        }
-    
-        this.store.dispatch(new AddBasketItemAction(newBasketItem));
-      }  
-    
-      reduceFromBasket(id: string) {
-        const product = this.productApiService.get(id)
-    
-        this.store.dispatch(new ReduceBasketItemAction(product.id));
-      }
+  addToBasket(id: string) {
+
+    const product = this.productApiService.get(id)
+
+    const newBasketItem: BasketItem = {
+      id: "1",
+      productId: product.id,
+      quantity: 1,
+      name: product.title,
+      imageUrl: product.imageUrl,
+      subTitle: product.subTitle,
+      title: product.title,
+      price: product.price
+    }
+
+    this.store.dispatch(new AddBasketItemAction(newBasketItem));
+  }  
+  
+  reduceFromBasket(id: string) {
+    const product = this.productApiService.get(id)
+
+    this.store.dispatch(new ReduceBasketItemAction(product.id));
+  }
 
 }

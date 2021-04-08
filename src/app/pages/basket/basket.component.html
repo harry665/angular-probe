@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="col-1 product-list-item-delete">
-                    <button class="product-list-item-delete-button" (click)="removeFromBasket(basketItem.id)">
+                    <button class="product-list-item-delete-button" (click)="removeFromBasket(basketItem.productId)">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                 </div>
@@ -54,9 +54,9 @@
                         <div class="product-list-checkout-box-coupon-input-field"><input [(ngModel)]="discountCode"></div>
                         <div class="product-list-checkout-box-coupon-input-button">
                             <button class="product-list-checkout-box-coupon-add-button-style" (click)="addCoupon()">Ok</button>
+                            <span *ngIf="basket.discountCode" class="product-list-checkout-box-coupon-input-info">Code "{{ basket.discountCode }}" applied!</span>
                             <button *ngIf="basket.discountCode" class="product-list-checkout-box-coupon-remove-button-style" (click)="removeCoupon()">[Remove]</button>
                         </div>
-                        <span *ngIf="basket.discountCode" class="product-list-checkout-box-coupon-input-info">Code "{{ basket.discountCode }}" applied!</span>
                     </div>
                 </div>
 
