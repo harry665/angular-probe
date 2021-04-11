@@ -8,6 +8,8 @@
   display: flex;
   justify-content: center;
   background-color: rgb(196, 119, 132);
+  // position: fixed;
+  // width: 100%;
 
   .navbar-box {
     width: 80%;
@@ -64,9 +66,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35px;
   background-color: rgba(104, 104, 104, 0.242);
+  height: 35px;
   font-size: 12px;
+  // margin-top: 55px;
 }
 
 // - - -

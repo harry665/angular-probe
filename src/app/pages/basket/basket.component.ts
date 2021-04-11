@@ -57,7 +57,7 @@ export class BasketComponent implements OnInit {
   }
 
   addCoupon(){
-    if (['EASTER21'].includes(this.discountCode)){
+    if (['SPRING21'].includes(this.discountCode)){
       
       this.store.dispatch(new AddBasketDiscountAction(this.discountCode))
       this.discountCode = undefined
