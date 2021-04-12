@@ -1,13 +1,14 @@
 import { Basket } from 'src/app/models/basket';
 import { AddBasketDiscountAction, AddBasketItemAction, ReduceBasketItemAction, RemoveBasketDiscountAction, RemoveBasketItemAction } from '../actions/basket.actions';
 import { BasketActionTypes } from '../actions/types';
+import { Actions } from './types';
 
 
 const initialState: Basket = {
   items: []
-};
+}
 
-export function BasketReducer(basket: Basket = initialState, action: AddBasketItemAction | ReduceBasketItemAction | RemoveBasketItemAction | AddBasketDiscountAction | RemoveBasketDiscountAction) {
+export function BasketReducer(basket: Basket = initialState, action: Actions) {  
   switch (action.type) {
     case BasketActionTypes.ADD_BASKET_ITEM: {
       return addItem(basket, action)
@@ -22,11 +23,11 @@ export function BasketReducer(basket: Basket = initialState, action: AddBasketIt
     }
 
     case BasketActionTypes.ADD_BASKET_DISCOUNT: {
-      return addDiscount(basket,action)
+      return addDiscount(basket, action)
     }
 
     case BasketActionTypes.REMOVE_BASKET_DISCOUNT: {
-      return removeDiscount(basket,action)
+      return removeDiscount(basket, action)
     }
 
     default: {

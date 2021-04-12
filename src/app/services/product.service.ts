@@ -4,7 +4,7 @@ import { Product } from "../models/shop-item";
 @Injectable()
 export class ProductApiService {
 
-    products: Product[] = [
+    private products: Product[] = [
         {
             id: "1",
             imageUrl: "http://i.epvpimg.com/zwmkfab.png",

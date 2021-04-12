@@ -22,7 +22,7 @@ export class BasketComponent implements OnInit {
   
   basket: Basket = {
     items: []
-  };
+  }
 
   constructor(private store: Store<AppState>, private productApiService: ProductApiService, private storeService: StoreService) { }
 

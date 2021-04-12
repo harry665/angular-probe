@@ -8,8 +8,6 @@ import { ProductApiService } from "./product.service";
 @Injectable()
 export class StoreService{
 
-  basketQuantity: number = 0
-
   constructor(private store: Store<AppState>, private productApiService: ProductApiService) {}
 
   addToBasket(id: string) {
