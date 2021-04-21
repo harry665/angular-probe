@@ -6,7 +6,11 @@
   border-bottom: 1px solid black;
 }
 
-.products {
+.products-box {
   display: flex;
   justify-content: center;
+
+  .products-box-items {
+    margin-bottom: 50px;
+  }
 }

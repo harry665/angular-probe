@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { Product } from "../models/shop-item";
 
@@ -21,7 +22,7 @@ export class ProductApiService {
         },
     ]
 
-    constructor() {}
+    constructor(private http: HttpClient) {}
 
     create(id: string, imageUrl: string, subTitle: string, title: string, price: number): void {
         const newProduct: Product = {
@@ -39,7 +40,9 @@ export class ProductApiService {
         return this.products.find(product => product.id === id)
     }
 
-    getAll(): Product[]  {
-        return this.products
+    async getAll(): Promise<Product[]>  {
+        const products = await this.http.get<Product[]>("http://localhost:3000/products").toPromise()
+        
+        return products
     }
 }

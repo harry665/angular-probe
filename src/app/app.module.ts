@@ -1,4 +1,5 @@
 import { registerLocaleData } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import localeDe from '@angular/common/locales/de';
 import localeDeExtra from '@angular/common/locales/extra/de';
 import { LOCALE_ID, NgModule } from '@angular/core';
@@ -45,7 +46,8 @@ registerLocaleData(localeDe, 'de-DE', localeDeExtra);
     StoreModule.forRoot({
       basket: BasketReducer
     }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    HttpClientModule
   ],
   providers: [
     ProductApiService,
