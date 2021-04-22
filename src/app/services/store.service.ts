@@ -12,26 +12,27 @@ export class StoreService{
 
   addToBasket(id: string) {
 
-    const product = this.productApiService.get(id)
-
-    const newBasketItem: BasketItem = {
-      id: "1",
-      productId: product.id,
-      quantity: 1,
-      name: product.title,
-      imageUrl: product.imageUrl,
-      subTitle: product.subTitle,
-      title: product.title,
-      price: product.price
-    }
-
-    this.store.dispatch(new AddBasketItemAction(newBasketItem));
+    this.productApiService.get(id).subscribe((product) => {
+          const newBasketItem: BasketItem = {
+            id: "1",
+            productId: product.id,
+            quantity: 1,
+            name: product.title,
+            imageUrl: product.imageUrl,
+            subTitle: product.subTitle,
+            title: product.title,
+            price: product.price
+          }
+      
+          this.store.dispatch(new AddBasketItemAction(newBasketItem));
+    })
   }  
   
   reduceFromBasket(id: string) {
-    const product = this.productApiService.get(id)
+    this.productApiService.get(id).subscribe((product) => {
+      this.store.dispatch(new ReduceBasketItemAction(product.id));
+    })
 
-    this.store.dispatch(new ReduceBasketItemAction(product.id));
   }
 
 }

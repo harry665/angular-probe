@@ -12,8 +12,10 @@ export class ShopComponent implements OnInit {
 
   constructor(private productApiService: ProductApiService) { }
 
-  async ngOnInit(): Promise<void> {
-    this.items = await this.productApiService.getAll()
+  ngOnInit(): void {
+    this.productApiService.getAll().subscribe((items) => {
+      this.items = items
+    })
   }
 
 }

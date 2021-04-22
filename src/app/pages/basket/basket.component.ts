@@ -51,9 +51,10 @@ export class BasketComponent implements OnInit {
   }
 
   removeFromBasket(id:string) {    
-    const product = this.productApiService.get(id)
+    this.productApiService.get(id).subscribe((product) => {
+      this.store.dispatch(new RemoveBasketItemAction(product.id));
+    })
 
-    this.store.dispatch(new RemoveBasketItemAction(product.id));
   }
 
   addCoupon(){
