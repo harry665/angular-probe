@@ -20,6 +20,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ReviewComponent } from './pages/review/review.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { ProductApiService } from './services/product.service';
+import { ReviewApiService } from './services/review.service';
 import { StoreService } from './services/store.service';
 import { BasketReducer } from './store/reducers/basket.reducer';
 
@@ -51,6 +52,7 @@ registerLocaleData(localeDe, 'de-DE', localeDeExtra);
   ],
   providers: [
     ProductApiService,
+    ReviewApiService,
     StoreService, 
     {
       provide: LOCALE_ID,

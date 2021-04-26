@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Review } from 'src/app/models/review';
+import { ReviewApiService } from 'src/app/services/review.service';
+
 
 @Component({
   selector: 'app-review',
@@ -30,9 +32,13 @@ export class ReviewComponent implements OnInit {
     ])
   })
 
-  constructor() { }
+  constructor(private reviewApiService: ReviewApiService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.reviewApiService.getAll().subscribe((reviews) => {
+      this.reviews = reviews
+    })
+  }
 
     // Push author, rating, date and text into right side navigation through method
     addReview(): void {
